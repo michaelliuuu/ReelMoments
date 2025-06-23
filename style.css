@@ -1,0 +1,83 @@
+/* Index Page */
+.front-page {
+    text-align: center;
+}
+
+/* Photobooth Page */
+.photobooth-page{
+    display: flex;
+}
+
+.webcam-container {
+    width: 70%;
+    height: 100vh;
+    text-align: center;
+}
+
+.webcam-container .filters {
+    margin-top: 50px;
+}
+
+.webcam-container #webcam {
+	margin: 0px auto;
+    margin-top: 50px;
+    margin-bottom: 40px;
+	width: 500px;
+	height: 375px;
+	border: 5px #333 solid;
+}
+
+.webcam-container #video-element {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.webcam-photo-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.webcam-photo-container #photo1, #photo2, #photo3, #photo4 {
+    width: 200px;
+    height: 150px;
+    margin: 1%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.noir {
+    filter: grayscale(100%);
+}
+.sepia {
+    filter: sepia(100%);
+}
+.invert {
+    filter: invert(100%);
+}
+.blur {
+    filter: blur(5px);
+}
+
+/* Photo Strip Page */
+#strip {
+    margin: 0px auto;
+	width: 250px;
+	height: 800px;
+
+    background-color: #666;
+}
+
+.photo-strip-page {
+    display: flex;
+}
+
+.photo-strip-container {
+    text-align: center;
+}

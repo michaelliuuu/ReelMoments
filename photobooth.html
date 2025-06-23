@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Photo Booth</title>
+</head>
+<body>
+    <div class="photobooth-page">
+        <div class="webcam-container">
+            <div class="filters">
+                <button id="no_filter">NO FILTER</button>
+                <button id="sepia">SEPIA</button>
+                <button id="noir">NOIR</button>
+                <button id="blur">BLUR</button>
+            </div>
+            <div id="timer"></div>
+            <div id="webcam">
+                <video autoplay="true" id="video-element"></video>
+            </div>
+            <button id="capture-button">CAPTURE</button><br>
+            <canvas id="canvas" style="display: none;"></canvas>
+        </div>
+        <div class="webcam-photo-container">
+            <img id="photo1">
+            <img id="photo2">
+            <img id="photo3">
+            <img id="photo4">
+        </div>
+    </div>
+</body>
+<script src="scripts.js"></script>
+</html>
