@@ -1,10 +1,15 @@
+body {
+background: #f7bcd2;
+background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
 /* Index Page */
 .front-page {
     text-align: center;
 }
 
 /* Photobooth Page */
-.photobooth-page{
+.photobooth-page {
     display: flex;
 }
 
@@ -12,16 +17,20 @@
     width: 70%;
     height: 100vh;
     text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.webcam-container .filters {
+/* .webcam-container .filters {
     margin-top: 50px;
-}
+} */
 
 .webcam-container #webcam {
 	margin: 0px auto;
     margin-top: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 	width: 500px;
 	height: 375px;
 	border: 5px #333 solid;
@@ -50,6 +59,7 @@
     margin: 1%;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+    background-color: white;
 }
 
 .noir {
@@ -66,6 +76,13 @@
 }
 
 /* Photo Strip Page */
+.photo-strip-page {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
 #strip {
     margin: 0px auto;
 	width: 250px;
@@ -74,10 +91,21 @@
     background-color: #666;
 }
 
-.photo-strip-page {
-    display: flex;
+.photo-strip-colours {
+    margin-bottom: 30px;
 }
 
-.photo-strip-container {
-    text-align: center;
+.photo-strip-options {
+    margin-top: 30px;
+}
+
+#photo-container #photo1, #photo2, #photo3, #photo4 {
+    width: 200px;
+    height: 150px;
+    margin: 1.5%;
+    background-color: white;
+}
+
+.photo-strip-page #photo-container #photo1 {
+    margin-top: 30px;
 }

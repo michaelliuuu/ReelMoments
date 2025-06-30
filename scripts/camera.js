@@ -14,6 +14,7 @@ if (navigator.mediaDevices.getUserMedia) {
 function applyFilter(filterName) {
     video.className = filterName;
 }
+
 document.getElementById("noir").addEventListener("click", () => applyFilter("noir"));
 document.getElementById("sepia").addEventListener("click", () => applyFilter("sepia"));
 document.getElementById("no_filter").addEventListener("click", () => applyFilter("no_filter"));
@@ -28,7 +29,7 @@ const photoElements = [
     document.getElementById('photo4')
 ];
 const capture_button = document.getElementById('capture-button');
-let photoIndex = 0; // Keeps track of the current photo
+let photoIndex = 0;
 const timerEl = document.getElementById("timer");
 
 // Recursive photo-taking function
@@ -87,16 +88,3 @@ capture_button.addEventListener('click', () => {
         takeNextPhoto();
     }, 1000);
 });
-
-// Changes colour of the strip
-// function change_colour(colour) {
-//     document.getElementById("strip").style.backgroundColor = colour;
-// }
-// document.getElementById("pink").addEventListener("click", () => change_colour("pink"));
-// document.getElementById("blue").addEventListener("click", () => change_colour("blue"));
-// document.getElementById("red").addEventListener("click", () => change_colour("red"));
-// document.getElementById("green").addEventListener("click", () => change_colour("green"));
-// document.getElementById("yellow").addEventListener("click", () => change_colour("yellow"));
-
-
-
