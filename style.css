@@ -8,6 +8,84 @@ background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 23
     text-align: center;
 }
 
+.front-page p, h1{
+    letter-spacing: 1px;
+}
+
+.front-page h1 {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.front-page .start-button {
+    margin-top: 2rem;
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.front-page .start-button:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.front-page .start-button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.front-page .start-button:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.front-page .carousel-container {
+    position: relative;
+    width: 50%;
+    height: 350px; /* adjust to your photo strip height */
+    overflow: hidden;
+    margin-top: 50px;
+    margin: 50px auto;
+}
+  
+.front-page .carousel-container .strip-track {
+    display: flex;
+    gap: 40px;
+    /* animation: scrollLeft 20s linear infinite; */
+    width: max-content;
+}
+
+.front-page .carousel-container .photostrip {
+    flex-shrink: 0;
+    height: 350px;
+    background-size: contain;
+}
+
+
 /* Photobooth Page */
 .photobooth-page {
     display: flex;

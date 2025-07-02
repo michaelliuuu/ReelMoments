@@ -1,15 +1,3 @@
-// Changes colour of the strip
-// function change_colour(colour) {
-//     document.getElementById("strip").style.backgroundColor = colour;
-// }
-
-// document.getElementById("pink").addEventListener("click", () => change_colour("pink"));
-// document.getElementById("blue").addEventListener("click", () => change_colour("blue"));
-// document.getElementById("red").addEventListener("click", () => change_colour("red"));
-// document.getElementById("green").addEventListener("click", () => change_colour("green"));
-// document.getElementById("yellow").addEventListener("click", () => change_colour("yellow"));
-
-
 const canvas = document.getElementById("strip");
 const ctx = canvas.getContext("2d");
 
@@ -43,16 +31,38 @@ for (let i = 0; i < imageCount; i++) {
     }
 }
 
-function drawStrip(images) {
-    const width = images[0].width;
-    const height = images[0].height;
+// Draws the photo strip
+function drawStrip(images, backgroundColor = "white") {
+    const scale = 0.5;
+    const photoWidth = images[0].width * scale;
+    const photoHeight = images[0].height * scale;
 
-    canvas.width = width;
-    canvas.height = height * images.length;
+    const gap = 20;
+    const paddingTop = 20;
+    const paddingBottom = 60;
+    const paddingSide = 20;
+
+    const canvasWidth = photoWidth + paddingSide * 2;
+    const canvasHeight =
+        paddingTop + images.length * photoHeight + (images.length - 1) * gap + paddingBottom;
+
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+
+    // Fill with chosen background color
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < images.length; i++) {
-        ctx.drawImage(images[i], 0, i * height, width, height);
+        const x = paddingSide;
+        const y = paddingTop + i * (photoHeight + gap);
+        ctx.drawImage(images[i], x, y, photoWidth, photoHeight);
     }
+
+    ctx.fillStyle = "black";
+    ctx.font = "bold 20px sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText("ReelMoments", canvas.width / 2, canvas.height - 20);
 }
 
 // Handle SAVE button click
@@ -66,10 +76,12 @@ saveButton.addEventListener("click", () => {
     link.click();
 });
 
-const stripContainer = document.getElementById("stripCanvas");
+// Change colour of photo strip
 ["pink", "blue", "yellow", "red", "green"].forEach(color => {
     document.getElementById(color).addEventListener("click", () => {
-        stripContainer.style.backgroundColor = color;
+        canvas.fillStyle = color;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        drawStrip(images, color);
     });
 });
 

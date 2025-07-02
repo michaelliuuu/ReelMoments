@@ -11,7 +11,18 @@
         <p>Create and customize your own photo strip in this private photobooth!</p>
         <p>This photobooth takes 4 photos. You have 3 seconds for each photo, no retakes! </p>
         <p>Download your photo strip for others to see!</p>
-        <button><a href="photobooth.html">START</a></button>
+        <a class="start-button" href="photobooth.html" role="button">START</a>
+        <div class="carousel-container">
+            <div class="fade fade-left"></div>
+            <div class="strip-track" id="stripTrack">
+                <img src="../images/photo-strip (1).png" class="photostrip" />
+                <img src="../images/photo-strip (2).png" class="photostrip" />
+                <img src="../images/photo-strip.png" class="photostrip" />
+            </div>
+            <div class="fade fade-right"></div>
+          </div>
+          
     </div>
 </body>
+<script src="../scripts/carousel.js"></script>
 </html>
