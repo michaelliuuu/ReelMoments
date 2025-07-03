@@ -77,12 +77,24 @@ saveButton.addEventListener("click", () => {
 });
 
 // Change colour of photo strip
-["pink", "blue", "yellow", "red", "green"].forEach(color => {
-    document.getElementById(color).addEventListener("click", () => {
-        canvas.fillStyle = color;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        drawStrip(images, color);
-    });
+custom_colours = {
+    pink: "#edc4f5",
+    blue: "#869fd9",
+    yellow: "#e6ed7e",
+    red: "#e85035",
+    green: "#7be364",
+    white: "white"
+};
+
+Object.entries(custom_colours).forEach(([name, hex]) => {
+    const button = document.getElementById(name);
+    if (button) {
+        button.addEventListener("click", () => {
+            ctx.fillStyle = hex;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drawStrip(images, hex);
+        });
+    }
 });
 
 
