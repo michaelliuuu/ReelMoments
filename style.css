@@ -1,6 +1,6 @@
 body {
-background: #f7bcd2;
-background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    background: #f7bcd2;
+    background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
 /* Index Page */
@@ -65,24 +65,41 @@ background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 23
 
 .front-page .carousel-container {
     position: relative;
-    width: 50%;
-    height: 350px; /* adjust to your photo strip height */
+    width: 25%;
+    height: 350px;
     overflow: hidden;
     margin-top: 50px;
     margin: 50px auto;
+    > * {
+      flex: 0 0 100%;
+    }
 }
   
 .front-page .carousel-container .strip-track {
     display: flex;
     gap: 40px;
-    /* animation: scrollLeft 20s linear infinite; */
-    width: max-content;
+    padding-right: 30px;
+    will-change: transform;
+    animation: scrolling 10s linear infinite;
 }
+
+@keyframes scrolling {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 
 .front-page .carousel-container .photostrip {
     flex-shrink: 0;
     height: 350px;
     background-size: contain;
+    box-shadow: rgba(0, 0, 0, 10%) 5px 5px 20px 0;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -91,7 +108,7 @@ background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 23
     display: flex;
 }
 
-.webcam-container {
+.photobooth-page .webcam-container {
     width: 70%;
     height: 100vh;
     text-align: center;
@@ -101,25 +118,113 @@ background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 23
     justify-content: center;
 }
 
-/* .webcam-container .filters {
-    margin-top: 50px;
-} */
+.photobooth-page .webcam-container .filters {
+    gap: 10px;
+    display: flex;
+}
 
-.webcam-container #webcam {
+.photobooth-page .webcam-container .filters button {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.photobooth-page .webcam-container .filters button:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.photobooth-page #webcam #timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+}
+
+.photobooth-page .webcam-container #webcam {
 	margin: 0px auto;
     margin-top: 50px;
     margin-bottom: 50px;
 	width: 500px;
 	height: 375px;
 	border: 5px #333 solid;
+    position: relative;
 }
 
-.webcam-container #video-element {
+.photobooth-page .webcam-container #video-element {
 	width: 500px;
 	height: 375px;
 	background-color: #666;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+}
+
+.photobooth-page .webcam-container #capture-button {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    height: 40px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#capture-button:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+#capture-button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+#capture-button:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
 }
 
 .webcam-photo-container {
@@ -153,6 +258,10 @@ background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 23
     filter: blur(5px);
 }
 
+.webcam-photo-container img {
+    transition: filter 0.3s;
+}
+
 /* Photo Strip Page */
 .photo-strip-page {
     display: flex;
@@ -161,7 +270,7 @@ background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 23
     justify-content: center;
 }
 
-#strip {
+.photo-strip-page .photo-strip-container #photo-container #strip {
     margin: 0px auto;
 	width: 250px;
 	height: 800px;
@@ -169,12 +278,40 @@ background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 23
     background-color: #666;
 }
 
-.photo-strip-colours {
+.photo-strip-page .photo-strip-container .photo-strip-colours {
+    display: flex;
+    gap: 10px;
     margin-bottom: 30px;
 }
 
-.photo-strip-options {
+.photo-strip-page .photo-strip-container .photo-strip-colours button {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    list-style: none;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+    padding: 6px 16px;
+}
+
+.photo-strip-page .photo-strip-container .photo-strip-options {
     margin-top: 30px;
+    margin-bottom: 1rem;
 }
 
 #photo-container #photo1, #photo2, #photo3, #photo4 {
@@ -186,4 +323,49 @@ background: linear-gradient(306deg, rgba(247, 188, 210, 1) 0%, rgba(148, 187, 23
 
 .photo-strip-page #photo-container #photo1 {
     margin-top: 30px;
+}
+
+.photo-strip-page .photo-strip-container .photo-strip-options button, a {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    height: 40px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.photo-strip-page .photo-strip-container .photo-strip-options button:focus, a:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.photo-strip-page .photo-strip-container .photo-strip-options button:hover, a:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.photo-strip-page .photo-strip-container .photo-strip-options button:active, a:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
 }

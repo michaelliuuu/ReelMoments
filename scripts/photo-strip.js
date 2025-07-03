@@ -25,7 +25,7 @@ for (let i = 0; i < imageCount; i++) {
 
             // Once all images are loaded, draw on canvas
             if (loadedCount === imageCount) {
-                drawStrip(images);
+                    drawStrip(images);
             }
         };
     }
