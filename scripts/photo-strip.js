@@ -8,7 +8,7 @@ let loadedCount = 0;
 // Load all images from localStorage
 for (let i = 0; i < imageCount; i++) {
     const dataUrl = localStorage.getItem(`photo${i}`);
-    console.log(`photo${i} loaded from localStorage:`, dataUrl);
+    // console.log(`photo${i} loaded from localStorage:`, dataUrl);
 
     if (!dataUrl) {
         console.warn(`Missing photo${i} in localStorage`);

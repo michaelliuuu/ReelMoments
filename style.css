@@ -111,6 +111,13 @@ body, html {
 /* Photobooth Page */
 .photobooth-page {
     display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 720px) {
+    .photobooth-page {
+        flex-direction: column;
+    }
 }
 
 .photobooth-page .webcam-container {

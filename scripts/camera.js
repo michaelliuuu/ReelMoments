@@ -15,9 +15,15 @@ if (navigator.mediaDevices.getUserMedia) {
 let currentFilter = 'no_filter'; // Default filter
 
 function applyFilter(filterName) {
-    video.className = filterName;
-    currentFilter = filterName; // Store the current filter
+    // video.className = filterName;
+    // currentFilter = filterName; // Store the current filter
+    alert("Filters do not currently work.");
 }
+
+document.getElementById("noir").addEventListener("click", () => applyFilter("noir"));
+document.getElementById("sepia").addEventListener("click", () => applyFilter("sepia"));
+document.getElementById("no_filter").addEventListener("click", () => applyFilter("no_filter"));
+document.getElementById("blur").addEventListener("click", () => applyFilter("blur"));
 
 function applyCanvasFilter(ctx, width, height, filterName) {
     // Reset any previous filters
@@ -55,16 +61,6 @@ const capture_button = document.getElementById('capture-button');
 let photoIndex = 0;
 const timerEl = document.getElementById("timer");
 
-function flashWebcam(callback) {
-    video.style.transition = "filter 0.3s";
-    video.style.filter = "brightness(3)";
-    
-    setTimeout(() => {
-        video.style.filter = "brightness(1)";
-        setTimeout(callback, 300);
-    }, 300);
-}
-
 // Recursive photo-taking function
 function takeNextPhoto() {
     if (photoIndex < photoElements.length) {
@@ -88,6 +84,7 @@ function takeNextPhoto() {
     }
 }
 
+// Adds photo to canvas and saves it
 function captureAndSavePhoto(index) {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
@@ -116,6 +113,18 @@ function displaySavedPhotos() {
     }
 }
 
+// Flashes webcam
+function flashWebcam(callback) {
+    video.style.transition = "filter 0.3s";
+    video.style.filter = "brightness(3)";
+    
+    setTimeout(() => {
+        video.style.filter = "brightness(1)";
+        setTimeout(callback, 300);
+    }, 300);
+}
+
+// Displays countdown
 function showCountdown(seconds, callback) {
     timerEl.style.display = 'block';
     let timeLeft = seconds;
