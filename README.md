@@ -2,12 +2,12 @@
 <img src="./images/ReelMoments.png" alt="Reel Moments" />
 
 ## Overview
-Always wanted your very own photobooth? Reel Moments is a web application that fits just the bill.
+Ever wanted a photobooth you can use right from your laptop or phone? Reel Moments is a simple web app that lets you snap four photos with a countdown, try out fun filters, and save your strip — just like a real photobooth. No fancy setup, no downloads — just point, click, and capture the moment.
 
  ## Features
 - Timer with flash to indicate picture taken
 - Change colour of the photo strip
-- Change the filter of the photos (WIP)READ
+- Change the filter of the photos (WIP)
 
 ## Tech Stack
 - **Frontend**: HTML, CSS, JavaScript
