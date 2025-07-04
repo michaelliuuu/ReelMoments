@@ -79,6 +79,12 @@ body, html {
       flex: 0 0 100%;
     }
 }
+
+@media (max-width: 600px) {
+    .front-page .carousel-container {
+        width: 50%;
+    }    
+}
   
 .front-page .carousel-container .strip-track {
     display: flex;
@@ -114,9 +120,10 @@ body, html {
     flex-direction: row;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 600px) {
     .photobooth-page {
-        flex-direction: column;
+        flex-direction: column; /* mobile: webcam on top, photos below */
+        align-items: center;
     }
 }
 
@@ -128,6 +135,12 @@ body, html {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .photobooth-page .webcam-container {
+        width: 100%;
+    }
 }
 
 .photobooth-page .webcam-container .filters {
@@ -248,6 +261,12 @@ body, html {
     align-items: center;
 }
 
+@media (max-width: 600px) {
+    .webcam-photo-container {
+      display: none;
+    }
+}
+
 .webcam-photo-container #photo1, #photo2, #photo3, #photo4 {
     width: 200px;
     height: 150px;
@@ -295,6 +314,13 @@ body, html {
     display: flex;
     gap: 10px;
     margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+    .photo-strip-page .photo-strip-container .photo-strip-colours {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 .photo-strip-page .photo-strip-container .photo-strip-colours button {
